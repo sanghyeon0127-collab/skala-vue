@@ -89,6 +89,7 @@ src/
     ├── WeatherDetailView.vue  # '/weather/:cityId' 도시 상세
     ├── WeatherAboutView.vue   # '/about' 소개
     ├── WeatherStatsView.vue   # '/stats' 전체 통계
+    ├── WeatherFavoritesView.vue # '/favorites' 즐겨찾기한 도시 모아보기
     └── NotFoundView.vue       # 그 외 모든 경로 (404)
 ```
 

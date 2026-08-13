@@ -27,6 +27,12 @@ const router = createRouter({
       component: () => import('../views/WeatherStatsView.vue'),
     },
     {
+      // 본인 추가 View : 즐겨찾기한 도시만 모아보기
+      path: '/favorites',
+      name: 'WeatherFavorites',
+      component: () => import('../views/WeatherFavoritesView.vue'),
+    },
+    {
       // 요구사항 1) Catch-all Route : 위 어떤 라우트와도 매칭되지 않는 주소를 전부 404 페이지로 안내
       path: '/:pathMatch(.*)*',
       name: 'NotFound',

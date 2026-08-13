@@ -71,7 +71,7 @@ const showDetail = (city) => {
 
 <template>
   <div class="weather-home">
-    <h2 class="page-title">🌤️ 과제 6: 날씨 (UI Library 적용)</h2>
+    <h2 class="page-title">🌤️ 날씨 대시보드</h2>
 
     <!-- Weather UI Library 과제 : 로딩은 el-skeleton, 에러는 el-alert로 표시 -->
     <el-skeleton v-if="weatherStore.isLoading" :rows="5" animated class="loading-skeleton" />

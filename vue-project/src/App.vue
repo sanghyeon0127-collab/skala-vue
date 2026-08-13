@@ -9,6 +9,7 @@ import UnitToggler from '@/components/exercise/UnitToggler.vue'
     <nav class="nav-bar">
       <RouterLink to="/" class="nav-link">홈</RouterLink>
       <RouterLink to="/about" class="nav-link">소개</RouterLink>
+      <RouterLink to="/favorites" class="nav-link">즐겨찾기</RouterLink>
       <RouterLink to="/stats" class="nav-link">통계</RouterLink>
       <UnitToggler />
     </nav>
