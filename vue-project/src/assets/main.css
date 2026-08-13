@@ -12,6 +12,14 @@
   --weather-bg-page: #eaf3fb;
   --weather-bg-card: #ffffff;
   --weather-radius: 12px;
+  --weather-radius-lg: 20px;
+
+  /* 홈 화면 글래스모피즘 전용 변수 : 반투명 유리 카드 표면 */
+  --glass-bg: rgba(255, 255, 255, 0.58);
+  --glass-bg-strong: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.45);
+  --glass-shadow: 0 8px 32px rgba(31, 38, 135, 0.16);
+  --glass-blur: 16px;
 }
 
 /* 우리 앱은 App.vue(네비게이션 바 + RouterView)가 자체적으로 레이아웃을 관리하므로,
