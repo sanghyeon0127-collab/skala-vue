@@ -10,8 +10,12 @@ Mock 데이터로 시작해 실제 OpenWeatherMap API 연동, 컴포넌트 분�
 - 도시 카드 그리드 대시보드 (반응형: 화면 폭에 따라 열 개수 자동 조정)
 - 도시 상세 페이지 : 현재 날씨, 24시간 예보(막대그래프 + 아이콘), 일출·일몰 시각
 - 섭씨/화씨 단위 전환 (새로고침해도 유지)
-- 즐겨찾기 도시 등록/해제 (새로고침해도 유지)
+- 즐겨찾기 도시 등록/해제 (새로고침해도 유지), 상단 "즐겨찾기" 탭에서 모아보기
 - 전체 도시 통계 페이지 (평균 기온, 최고/최저 기온 도시)
+- **개인 맞춤 옷차림 추천** (도시 상세 페이지) : 기온 + 습도를 함께 반영한 "체감 더위 지수"로 옷차림을 추천
+  - 습도가 높을수록 땀을 많이 흘리는 개인 체질을 반영해, 습도 50% 초과분에 가중치를 둬서 체감 지수를 계산
+  - 맑고 기온이 높은 날엔 "어두운 옷은 열을 흡수하니 피하라"는 조언 추가
+  - 비/눈 예보 시 우산·미끄럼 방지 신발 등 상황별 조언 추가
 - 존재하지 않는 경로 접근 시 404 페이지
 
 ## 기술 스택
@@ -83,10 +87,13 @@ src/
 │   ├── WeatherCard.vue
 │   ├── WeatherSummary.vue
 │   ├── ForecastChart.vue
+│   ├── ClothingAdvice.vue   # 개인 맞춤 옷차림 추천 카드 (도시 상세 페이지에서 사용)
 │   └── UnitToggler.vue
+├── utils/
+│   └── clothingAdvice.js    # 기온+습도 기반 "체감 더위 지수" 계산 및 조언 생성 로직
 └── views/
     ├── WeatherHomeView.vue    # '/' 메인 대시보드
-    ├── WeatherDetailView.vue  # '/weather/:cityId' 도시 상세
+    ├── WeatherDetailView.vue  # '/weather/:cityId' 도시 상세 (옷차림 추천 포함)
     ├── WeatherAboutView.vue   # '/about' 소개
     ├── WeatherStatsView.vue   # '/stats' 전체 통계
     ├── WeatherFavoritesView.vue # '/favorites' 즐겨찾기한 도시 모아보기
@@ -105,6 +112,13 @@ src/
 6. **Weather Axios** — Mock 데이터를 OpenWeatherMap 실제 API 호출로 교체, 예보/일출일몰 API 추가 연동
 7. **Weather UI Library** — Element Plus 적용 (el-card, el-input, el-switch, el-tag, el-statistic 등)
 8. **Weather Refinement** — VueUse로 상태 영속화(localStorage), 공통 색상 변수 정리, 페이지 전환 애니메이션 추가
+9. **Weather Deployment** — GitHub Actions로 GitHub Pages 자동 배포 (push 시 build → deploy)
+
+과제 요구사항 외에 개인적으로 아래 기능을 추가했습니다.
+
+- 홈 화면 타이틀을 과제명 대신 "🌤️ 날씨 대시보드"로 변경
+- 상단 네비게이션에 "즐겨찾기" 탭 추가, 즐겨찾기한 도시만 모아보는 페이지 신설
+- 개인 체질(고온다습 시 땀을 많이 흘림)을 반영한 옷차림 추천 기능 (도시 상세 페이지)
 
 ## 알아두면 좋은 점
 
