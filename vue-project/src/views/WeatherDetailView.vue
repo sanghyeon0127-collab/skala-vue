@@ -6,6 +6,7 @@ import { fetchCurrentWeather, fetchForecast, getIconUrl } from '@/api/weatherApi
 import { fetchSunTimes } from '@/api/sunApi.js'
 import { useConfigStore } from '@/stores/configStore.js'
 import ForecastChart from '@/components/exercise/ForecastChart.vue'
+import ClothingAdvice from '@/components/exercise/ClothingAdvice.vue'
 import { ArrowLeft } from '@element-plus/icons-vue'
 
 // 동적 경로 /weather/:cityId 를 처리하는 상세 페이지
@@ -86,6 +87,12 @@ const displayTemp = computed(() => {
         <el-tag v-else type="primary" effect="dark" class="temp-badge">❄ 선선함 (25도 미만)</el-tag>
       </div>
 
+      <!-- 본인 추가 기능 : 기온+습도 기반 옷차림 추천 -->
+      <div class="clothing-card">
+        <h3 class="sub-title">👕 오늘의 옷차림 추천</h3>
+        <ClothingAdvice :city="city" />
+      </div>
+
       <!-- 요구사항 3) sunrise-sunset.org 결과 표시 -->
       <div v-if="sunTimes" class="sun-card">
         <h3 class="sub-title">🌅 일출 · 일몰</h3>
@@ -137,6 +144,7 @@ const displayTemp = computed(() => {
 }
 
 .detail-card,
+.clothing-card,
 .sun-card,
 .forecast-card {
   background-color: var(--weather-bg-card);
