@@ -1,0 +1,36 @@
+@import './base.css';
+
+/* Weather Refinement : 날씨 앱 전용 색상/반경을 변수로 모아두고 각 View/컴포넌트에서 재사용한다.
+   (하드코딩된 hex 값을 흩뿌리지 않고 한 곳에서 팔레트를 관리하기 위한 리팩터링) */
+:root {
+  --weather-primary: #3498db;
+  --weather-primary-soft: #85c1e9;
+  --weather-accent: #34495e;
+  --weather-accent-dark: #2c3e50;
+  --weather-danger: #e74c3c;
+  --weather-success: #27ae60;
+  --weather-bg-page: #eaf3fb;
+  --weather-bg-card: #ffffff;
+  --weather-radius: 12px;
+}
+
+/* 우리 앱은 App.vue(네비게이션 바 + RouterView)가 자체적으로 레이아웃을 관리하므로,
+   scaffold 기본 템플릿용 2열 그리드/센터링 규칙은 제거하고 폭 100%만 보장한다. */
+#app {
+  width: 100%;
+  font-weight: normal;
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+  padding: 3px;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+}
